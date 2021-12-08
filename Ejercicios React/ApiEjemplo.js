@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-function ApiEjemplo () {
+function ApiEjemplo() {
 
     const [user, setUser] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         //console.log('desde useEfect')
@@ -15,19 +16,34 @@ function ApiEjemplo () {
         const users = await data.json()
         //console.log(users);
         setUser(users);
+        setLoading(false);
     }
 
-    return(
+    if (loading) {
+        return (
+            <div>
+                Loading.....
+            </div>
+        )
+    } else {
+        return (
 
-        <div>
-            <h2>Datos desde API</h2>
-            {
-            user.map(item => (
-                <p key={item.id}>{item.id} - {item.name} - {item.address.city}</p>
-            ))
-            }
-        </div>
-    )
+            <div>
+                <h2>Datos desde API</h2>
+                {
+                    user.map(item => (
+                        <div key={item.id}>
+                            {item.id} -
+                            {item.name} -
+                            {item.address.city}
+                            <button>Ver detalle</button>
+                        </div>
+                    ))
+                }
+            </div>
+        )
+    }
+
 }
 
 export default ApiEjemplo;
