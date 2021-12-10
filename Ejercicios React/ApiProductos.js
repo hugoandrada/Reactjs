@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 function Producto () {
 
     const [producto, setProducto] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const obtenerDatos = async () => {
         const data = await fetch('https://fakestoreapi.com/products?limit=10');

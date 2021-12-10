@@ -5,12 +5,6 @@ function ApiEjemplo() {
     const [user, setUser] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        //console.log('desde useEfect')
-        obtenerDatos();
-
-    }, []);
-
     const obtenerDatos = async () => {
         const data = await fetch('https://jsonplaceholder.typicode.com/users');
         const users = await data.json()
@@ -18,6 +12,12 @@ function ApiEjemplo() {
         setUser(users);
         setLoading(false);
     }
+
+    useEffect(() => {
+        //console.log('desde useEfect')
+        obtenerDatos();
+
+    }, []);
 
     if (loading) {
         return (
