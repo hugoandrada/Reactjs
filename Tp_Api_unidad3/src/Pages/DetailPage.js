@@ -8,23 +8,22 @@ function DetailProductPage() {
     const { id } = useParams();
     //console.log("id", id)
 
-    const GetProductById = async () => {
-        try {
-            const url = 'https://api.mercadolibre.com/items/' + id;
-            const datos = await fetch(url);
-            const response = await datos.json();
-            //console.log(response);
-            setProducto(response);
-            setLoading(false);
-
-        } catch (error) {
-            alert('error');
-        }
-    }
 
     useEffect(() => {
-        GetProductById();
+        const GetProductById = async () => {
+            try {
+                const url = 'https://api.mercadolibre.com/items/' + id;
+                const datos = await fetch(url);
+                const response = await datos.json();
+                //console.log(response);
+                setProducto(response);
+                setLoading(false);
 
+            } catch (error) {
+                alert('error');
+            }
+        }
+        GetProductById();//corregido error missing dependencis
     }, []);
 
     if (loading) {
@@ -40,7 +39,7 @@ function DetailProductPage() {
                 <h1>Detalle Page</h1>
                 <article className="product-list">
                     <h3><b>{producto.title}</b></h3>
-                    <img src={producto.thumbnail} width="200px" />
+                    <img src={producto.thumbnail} width="200px" alt="200px" />
                     <b>Precio: $ {producto.price}</b>
                 </article>
             </div>
