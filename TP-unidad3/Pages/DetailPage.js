@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
+import SingleProduct from "../Components/SingleProduct";
 
 function DetailProductPage() {
 
@@ -8,14 +9,13 @@ function DetailProductPage() {
     const { id } = useParams();
     //console.log("id", id)
 
-
     useEffect(() => {
         const GetProductById = async () => {
             try {
                 const url = 'https://api.mercadolibre.com/items/' + id;
                 const datos = await fetch(url);
                 const response = await datos.json();
-                //console.log(response);
+                console.log(response);
                 setProducto(response);
                 setLoading(false);
 
@@ -23,8 +23,9 @@ function DetailProductPage() {
                 alert('error');
             }
         }
-        GetProductById();//corregido error missing dependencis
-    }, []);
+        GetProductById();
+    }, [id]);  //cargar la funcion dentro del useEffect para corregir 
+                //erro de missing dependencias
 
     if (loading) {
         return (
@@ -37,11 +38,7 @@ function DetailProductPage() {
         return (
             <div className="product">
                 <h1>Detalle Page</h1>
-                <article className="product-list">
-                    <h3><b>{producto.title}</b></h3>
-                    <img src={producto.thumbnail} width="200px" alt="200px" />
-                    <b>Precio: $ {producto.price}</b>
-                </article>
+                <SingleProduct datos={producto} />
             </div>
         )
     }

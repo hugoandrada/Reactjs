@@ -2,7 +2,7 @@ import React from "react";
 
 function HeaderContent () {
     return (
-        <p>Header Content</p>
+        <p>Header component</p>
     )
 }
 

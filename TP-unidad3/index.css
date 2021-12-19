@@ -19,6 +19,12 @@ body {
   padding: 10px;
   color: white;
 }
+.form {
+  margin: 0;
+  width: 400px;
+  align-content: center;
+  padding: 10px;
+}
 
 .product .product-list {
   width: 400px;
@@ -34,4 +40,18 @@ body {
 
 h1 {
   text-align: center;
+}
+
+#text {
+  text-decoration: none;
+}
+
+.btn {
+  border: 1px solid #2e518b; /*anchura, estilo y color borde*/
+padding: 10px; /*espacio alrededor texto*/
+background-color: #d6e930; /*color botón*/
+color: #ffffff; /*color texto*/
+text-decoration: none; /*decoración texto*/
+text-transform: uppercase; /*capitalización texto*/
+border-radius: 50px; /*bordes redondos*/
 }

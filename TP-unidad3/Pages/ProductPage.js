@@ -1,4 +1,6 @@
+import '../index.css';
 import React, { useState, useEffect } from "react";
+import ProductList from "../Components/ProductList";
 
 function ProductPage() {
 
@@ -7,15 +9,15 @@ function ProductPage() {
 
     const GetProduct = async () => {
         try {
-            const url = 'https://api.mercadolibre.com/sites/MLA/search?q=lenovo';
+            const url = 'https://api.mercadolibre.com/sites/MLA/search?q=iphone';
             const datos = await fetch(url);
             const response = await datos.json();
             //console.log(response.results);
-            setProducto(response.results);
+            setProducto(response.results);//results es el atributo que devuelve ml
             setLoading(false);
 
         } catch (error) {
-            alert('error');
+            console.log('error');
         }
     }
 
@@ -33,18 +35,10 @@ function ProductPage() {
     } else {
 
         return (
-            <div className="product-list">
+
+            <div className="product">
                 <h1>Product Page</h1>
-                <ul>
-                    {producto.map((item) =>
-                    (<li key={item.id}>
-                        <h3>{item.title}</h3>
-                        <p>Precio: $ {item.price}</p>
-                        <img src={item.thumbnail} alt="100px" width="100px" />
-                        <button>Ver Detalle</button>
-                    </li>
-                    ))}
-                </ul>
+                {producto.map(item => <ProductList datos={item} key={item.id}/>)}
             </div>
         )
     }

@@ -7,7 +7,7 @@ function Menu() {
             <Link id="text" to="/">Home</Link>
             <Link id="text" to="/product">Productos</Link>
             <Link id="text" to="/login">Login</Link>
-            <Link id="text" to="/contact">Contacto</Link>
+            <Link id="text" to="/registro">Registro</Link>
         </nav>
 
     )
