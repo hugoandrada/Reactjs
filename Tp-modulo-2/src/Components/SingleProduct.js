@@ -1,7 +1,7 @@
 import React from "react";
 
-function SingleProduct(props) {
-    const { datos } = props
+function SingleProduct({ datos }) {
+    //const { datos } = props
 
     return (
 
