@@ -13,10 +13,12 @@
   usamos el argumento useParams 
   import { useParams } from "react-router-dom"
 
+  
   lo declaramos
   const { id } = useParams();
 
   lo pasamos como parametro a la url
   const url = 'https://api.mercadolibre.com/items/'+id;
+
 
 */
