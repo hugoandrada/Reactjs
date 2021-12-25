@@ -1,4 +1,7 @@
-#esto es un comentario
-
+#ignorar por carpetas
 Varios/*
 Varios/
+
+#ignorar por nombre
+
+varios.js
