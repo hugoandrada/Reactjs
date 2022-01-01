@@ -1,5 +1,5 @@
 import NavRoutes from "./Routes/Public";
-import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

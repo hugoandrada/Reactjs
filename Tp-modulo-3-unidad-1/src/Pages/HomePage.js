@@ -1,11 +1,16 @@
 import '../index.css';
+import firebase from '../Config/Firebase';
 import React, { useState, useEffect } from "react";
 import ProductList from "../Components/ProductList";
+import { Row } from 'react-bootstrap';
 
-function ProductPage () {
+function ProductPage() {
 
   const [producto, setProducto] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  console.log(firebase);
+  //firebase
 
   const GetProduct = async () => {
     try {
@@ -36,9 +41,15 @@ function ProductPage () {
 
     return (
 
-      <div className="product">
-        <h1>Productos</h1>
-        {producto.map(item => <ProductList datos={item} key={item.id} />)}
+      /* <div className="card-colum">
+         <h1>Productos</h1>
+         {producto.map(item => <ProductList datos={item} key={item.id} />)}
+       </div> */
+       
+      <div className='article'>
+        <Row xs={1} md={2} className="g-4">
+          {producto.map(item => <ProductList datos={item} key={item.id} />)}
+        </Row>
       </div>
     )
   }

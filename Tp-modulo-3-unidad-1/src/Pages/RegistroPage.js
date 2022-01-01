@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from 'react-hook-form';
+import { Button, Form } from "react-bootstrap";
 
 function RegistroPage() {
 
@@ -10,9 +11,9 @@ function RegistroPage() {
     }
 
     return (
-        <div className="form-div">
+        <div className="article">
             <h1>Registro Page</h1>
-            <form onSubmit={handleSubmit(onSubmit)} className="form">
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <p><label>Nombre</label></p>
                 <p><input
                     type="text"
@@ -41,7 +42,8 @@ function RegistroPage() {
                     {...register("telefono", { required: true, minLength: 10 })}
                 /></p>
                 {errors.telefono && <b>Ingrese un numero valido</b>}
-                <button>Registrarse</button>
+                
+                <Button type="submit" variant="primary">Registrarse</Button>
             </form>
         </div>
     )

@@ -36,7 +36,7 @@ function DetailProductPage() {
     } else {
 
         return (
-            <div className="product">
+            <div className="article">
                 <h1>Detalle Page</h1>
                 <SingleProduct datos={producto} />
             </div>

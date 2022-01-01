@@ -1,5 +1,7 @@
 import React from "react";
 import { useForm } from 'react-hook-form'
+import { Button, Form } from 'react-bootstrap'
+
 
 function LoginPage() {
 
@@ -9,7 +11,7 @@ function LoginPage() {
     }
 
     return (
-        <div className="form-div">
+        <div className="article">
             <h1>Login Page</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <p><label>Nombre de usuario</label></p>
@@ -24,7 +26,8 @@ function LoginPage() {
                     placeholder="last name"
                     {...register("lastname", { required: true, minLength: 6 })} /></p>
                 {errors.lastname && <b>Minimo 6 caracteres</b>}
-                <button>Iniciar Sesion</button>
+
+                <Button type="submit" variant="primary">Iniciar Sesion</Button>
             </form>
         </div>
 
